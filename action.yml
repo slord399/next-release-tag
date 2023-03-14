@@ -1,6 +1,6 @@
-name: 'Auto Generate Next Release Tag'
-description: 'Automatically generate next release tag incrementally with year, month and iteration based on previous release tag.'
-author: 'amitsingh-007'
+name: 'Auto Generate Next Release Tag by Date'
+description: 'Automatically generate next release tag incrementally with year, month, day and iteration based on previous release tag.'
+author: 'alexvingg'
 branding:
   color: 'red'
   icon: 'tag'
