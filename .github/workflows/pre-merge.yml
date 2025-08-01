@@ -1,7 +1,7 @@
 name: Pre Merge
 
 on:
-  workflow_dispatch:
+  push:
     inputs:
       expected_release_tag:
         description: Expected release tag
