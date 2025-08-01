@@ -1,5 +1,8 @@
 name: Update-pnpm
 
+permissions:
+  contents: read
+
 on:
   push:
 
