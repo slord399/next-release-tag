@@ -6,6 +6,8 @@ on:
 
 jobs:
   Test:
+    permissions:
+      contents: read
     name: OS ${{ matrix.os }} + node ${{ matrix.node }}
     strategy:
       matrix:
