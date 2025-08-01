@@ -10,6 +10,9 @@ on:
 
 jobs:
   Pre_Merge:
+    permissions:
+      contents: read
+      checks: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
