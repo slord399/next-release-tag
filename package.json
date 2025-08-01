@@ -15,9 +15,9 @@
   "dependencies": {
     "@actions/core": "1.11.1",
     "@actions/core": "1.10.0",
+    "rimraf": "4.4.1",
     "moment": "^2.30.1",
     "@actions/github": "6.0.1",
-    "rimraf": "4.1.1",
 
      "@octokit/request": "8.4.1",
      "@octokit/plugin-paginate-rest": "9.2.2",
