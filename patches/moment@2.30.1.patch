@@ -1,0 +1,13 @@
+diff --git a/src/lib/parse/regex.js b/src/lib/parse/regex.js
+index c2cf4e59a827cc405bb18312b3d516d020c138aa..4024cd014ef23f8e752facba957586ddcd0b397a 100644
+--- a/src/lib/parse/regex.js
++++ b/src/lib/parse/regex.js
+@@ -69,7 +69,7 @@ export function getParseRegexForToken(token, config) {
+ function unescapeFormat(s) {
+     return regexEscape(
+         s
+-            .replace('\\', '')
++            .replace(/\\/g, '')
+             .replace(
+                 /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
+                 function (matched, p1, p2, p3, p4) {
