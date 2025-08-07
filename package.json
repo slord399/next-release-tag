@@ -22,7 +22,7 @@
     "devDependencies": {
         "@kesills/eslint-config-airbnb-typescript": "20.0.0",
         "@octokit/plugin-paginate-rest": "9.2.2",
-        "@octokit/request": "8.4.1",
+        "@octokit/request": "10.0.3",
         "@octokit/request-error": "5.1.1",
         "@typescript-eslint/eslint-plugin": "8",
         "@typescript-eslint/parser": "8",
