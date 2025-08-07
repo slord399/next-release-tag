@@ -28,7 +28,7 @@
         "@typescript-eslint/parser": "8",
         "@vercel/ncc": "0.36.0",
         "braces": "3.0.3",
-        "esbuild": "0.25.4",
+        "esbuild": "0.25.8",
         "eslint": "8.57.0",
         "eslint-config-airbnb-base": "15.0.0",
         "eslint-config-prettier": "^8.6.0",
