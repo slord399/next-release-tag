@@ -15,7 +15,7 @@ const getNewReleaseTag = (
     const date = oldReleaseTag
       .substring(tagPrefix.length).substring(0, 8);
 
-    const dateMoment = moment(date, 'YYYY.MM.DD');
+    const dateMoment = moment.utc(date, 'YYYY.MM.DD');
 
 
     const oldYear = dateMoment.format('YYYY');
