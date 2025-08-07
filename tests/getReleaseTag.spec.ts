@@ -55,6 +55,11 @@ describe('test with prefix', () => {
       expect(getReleaseTag('v', input)).toBe('v20230101.1');
     }
   );
+
+  it('should handle multiple dots in iteration part', () => {
+    vi.setSystemTime(new Date('2022-11-24'));
+    expect(getReleaseTag('v', 'v20221123.1.5')).toBe('v20221123.16');
+  });
 });
 
 describe('test without prefix', () => {

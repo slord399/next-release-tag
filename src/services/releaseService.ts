@@ -23,7 +23,7 @@ const getNewReleaseTag = (
     const oldDay = dateMoment.format('DD');
 
     const oldItr = Number(oldReleaseTag
-      .substring(tagPrefix.length + 8).replace(".", ""));
+      .substring(tagPrefix.length + 8).replace(/\./g, ""));
 
 
     return generateNewTagFromOld({
