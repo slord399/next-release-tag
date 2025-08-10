@@ -8147,7 +8147,7 @@ exports.Deprecation = Deprecation;
     function unescapeFormat(s) {
         return regexEscape(
             s
-                .replace('\\', '')
+                .replace(/\\/g, '')
                 .replace(
                     /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
                     function (matched, p1, p2, p3, p4) {
