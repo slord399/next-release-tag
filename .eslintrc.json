@@ -6,7 +6,7 @@
   },
   "extends": [
     "airbnb-base",
-    "airbnb-typescript/base",
+    "@kesills/airbnb-typescript/base",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -14,6 +14,15 @@
   },
   "rules": {
     "no-console": "off",
-    "import/prefer-default-export": "off"
-  }
+    "import/prefer-default-export": "off",
+    "@stylistic/comma-dangle": "off"
+  },
+  "overrides": [
+    {
+      "files": ["vitest.config.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }
