@@ -17,10 +17,10 @@ export const generateNewTagFromOld = ({
   // const curMonth = curDate.getMonth() + 1;
   // const curYear = curDate.getFullYear();
   // const curDay = curDate.getDate();
-  
+
   const curMonth = moment.utc().subtract(1, 'days').format('MM');
   const curYear = moment.utc().subtract(1, 'days').format('YYYY');
-  const curDay =  moment.utc().subtract(1, 'days').format('DD');
+  const curDay = moment.utc().subtract(1, 'days').format('DD');
 
   let newYear = curYear;
   let newMonth = curMonth;
@@ -37,7 +37,7 @@ export const generateNewTagFromOld = ({
     newItr = 1;
     newMonth = curMonth;
   }
-  
+
   if (curYear !== oldYear) {
     newItr = 1;
     newYear = curYear;
