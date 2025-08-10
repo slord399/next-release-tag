@@ -42,7 +42,7 @@
         "tmp": ">=0.2.4",
         "typescript": "5.9.2",
         "vite": "^7.0.6",
-        "vitest": "^1.0.0"
+        "vitest": "^3.2.4"
     },
     "pnpm": {
         "overrides": {
