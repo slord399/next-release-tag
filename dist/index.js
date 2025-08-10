@@ -8147,7 +8147,7 @@ exports.Deprecation = Deprecation;
     function unescapeFormat(s) {
         return regexEscape(
             s
-                .replace('\\', '')
+                .replace(/\\/g, '')
                 .replace(
                     /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
                     function (matched, p1, p2, p3, p4) {
@@ -37665,7 +37665,8 @@ const getNewReleaseTag = (tagPrefix, oldReleaseTag) => {
         //   .substring(tagPrefix.length)
         //   .split('.')
         //   .map((x) => x);
-        const date = oldReleaseTag.substring(tagPrefix.length).substring(0, 8);
+        const date = oldReleaseTag
+            .substring(tagPrefix.length).substring(0, 8);
         const dateMoment = moment_default().utc(date, 'YYYY.MM.DD');
         const oldYear = dateMoment.format('YYYY');
         const oldMonth = dateMoment.format('MM');
@@ -37684,9 +37685,9 @@ const getNewReleaseTag = (tagPrefix, oldReleaseTag) => {
     }
     // Handle no releases yet or prefix not matching last release
     return generateNewTagFromOld({
-        oldYear: '-1',
-        oldMonth: '-1',
-        oldDay: '-1',
+        oldYear: "-1",
+        oldMonth: "-1",
+        oldDay: "-1",
         oldItr: -1,
         tagPrefix,
     });

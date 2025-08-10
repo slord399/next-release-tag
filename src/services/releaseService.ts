@@ -1,5 +1,5 @@
-import moment from 'moment';
 import { generateNewTagFromOld } from '../utils/release';
+import moment from 'moment';
 
 const getNewReleaseTag = (
   tagPrefix: string,
@@ -11,9 +11,12 @@ const getNewReleaseTag = (
     //   .split('.')
     //   .map((x) => x);
 
-    const date = oldReleaseTag.substring(tagPrefix.length).substring(0, 8);
+
+    const date = oldReleaseTag
+      .substring(tagPrefix.length).substring(0, 8);
 
     const dateMoment = moment.utc(date, 'YYYY.MM.DD');
+
 
     const oldYear = dateMoment.format('YYYY');
     const oldMonth = dateMoment.format('MM');
@@ -26,6 +29,7 @@ const getNewReleaseTag = (
         .replace(/\\/g, '')
     );
 
+
     return generateNewTagFromOld({
       oldYear,
       oldMonth,
@@ -36,9 +40,9 @@ const getNewReleaseTag = (
   }
   // Handle no releases yet or prefix not matching last release
   return generateNewTagFromOld({
-    oldYear: '-1',
-    oldMonth: '-1',
-    oldDay: '-1',
+    oldYear: "-1",
+    oldMonth: "-1",
+    oldDay: "-1",
     oldItr: -1,
     tagPrefix,
   });
