@@ -47,6 +47,9 @@
     "pnpm": {
         "overrides": {
             "tmp": ">=0.2.4"
+        },
+        "patchedDependencies": {
+            "moment@2.30.1": "patches/moment@2.30.1.patch"
         }
     }
 }
