@@ -10,7 +10,8 @@
         "clean": "rimraf dist/",
         "dist": "yarn test && yarn build",
         "lint": "eslint .",
-        "test": "vitest run"
+        "test": "vitest run",
+        "postinstall": "node fix.js"
     },
     "dependencies": {
         "@actions/core": "1.11.1",
