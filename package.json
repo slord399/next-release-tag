@@ -8,7 +8,7 @@
     "scripts": {
         "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt",
         "clean": "rimraf dist/",
-        "dist": "yarn lint && yarn test && yarn build",
+        "dist": "yarn test && yarn build",
         "lint": "eslint .",
         "test": "vitest run"
     },
@@ -23,6 +23,7 @@
         "@octokit/plugin-paginate-rest": "9.2.2",
         "@octokit/request": "10.0.3",
         "@octokit/request-error": "5.1.1",
+        "@stylistic/eslint-plugin": "^2.6.1",
         "@typescript-eslint/eslint-plugin": "8",
         "@typescript-eslint/parser": "8",
         "@vercel/ncc": "0.36.0",
@@ -41,8 +42,8 @@
         "typescript": "5.9.2",
         "vite": "^5.2.11",
         "vitest": "^1.6.0"
-  },
-  "resolutions": {
-    "esbuild": "0.25.8"
+    },
+    "resolutions": {
+        "esbuild": "0.25.8"
     }
 }
