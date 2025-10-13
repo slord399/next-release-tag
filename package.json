@@ -6,12 +6,12 @@
     "license": "MIT-open-group",
     "homepage": "https://github.com/alexvingg/next-release-tag#readme",
     "scripts": {
-        "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt",
+        "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt --no-cache",
         "clean": "rimraf dist/",
         "dist": "yarn test && yarn build",
         "lint": "eslint .",
         "test": "vitest run",
-        "postinstall": "patch-package"
+        "postinstall": ""
     },
     "dependencies": {
         "@actions/core": "1.11.1",
@@ -35,7 +35,6 @@
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-import": "2.32.0",
         "eslint-plugin-prettier": "4.2.5",
-        "patch-package": "^8.0.1",
         "postcss": "8.5.6",
         "prettier": "2.8.3",
         "rimraf": "4.4.1",
