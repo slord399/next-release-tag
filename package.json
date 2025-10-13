@@ -6,12 +6,11 @@
     "license": "MIT-open-group",
     "homepage": "https://github.com/alexvingg/next-release-tag#readme",
     "scripts": {
-        "build": "pnpm clean && ncc build src/index.ts --minify --license licenses.txt",
+        "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt",
         "clean": "rimraf dist/",
-        "dist": "pnpm lint && pnpm test && pnpm build",
+        "dist": "yarn lint && yarn test && yarn build",
         "lint": "eslint .",
-        "test": "vitest run",
-        "postinstall": "patch-package"
+        "test": "vitest run"
     },
     "dependencies": {
         "@actions/core": "1.11.1",
@@ -34,22 +33,13 @@
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-import": "2.32.0",
         "eslint-plugin-prettier": "4.2.5",
-        "patch-package": "^8.0.0",
         "postcss": "8.5.6",
         "prettier": "2.8.3",
         "rimraf": "4.4.1",
         "rollup": "3.29.5",
         "tmp": ">=0.2.4",
         "typescript": "5.9.2",
-        "vite": "^7.0.6",
-        "vitest": "^3.2.4"
-    },
-    "pnpm": {
-        "overrides": {
-            "tmp": ">=0.2.4"
-        },
-        "patchedDependencies": {
-            "moment@2.30.1": "patches/moment@2.30.1.patch"
-        }
+        "vite": "^5.2.11",
+        "vitest": "^1.6.0"
     }
 }
