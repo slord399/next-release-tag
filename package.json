@@ -41,5 +41,8 @@
         "typescript": "5.9.2",
         "vite": "^5.2.11",
         "vitest": "^1.6.0"
+  },
+  "resolutions": {
+    "esbuild": "0.25.8"
     }
 }
