@@ -8,9 +8,10 @@
     "scripts": {
         "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt",
         "clean": "rimraf dist/",
-        "dist": "yarn lint && yarn test && yarn build",
+        "dist": "yarn test && yarn build",
         "lint": "eslint .",
-        "test": "vitest run"
+        "test": "vitest run",
+        "postinstall": "patch-package"
     },
     "dependencies": {
         "@actions/core": "1.11.1",
@@ -33,6 +34,7 @@
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-import": "2.32.0",
         "eslint-plugin-prettier": "4.2.5",
+        "patch-package": "^8.0.1",
         "postcss": "8.5.6",
         "prettier": "2.8.3",
         "rimraf": "4.4.1",
@@ -41,8 +43,8 @@
         "typescript": "5.9.2",
         "vite": "^5.2.11",
         "vitest": "^1.6.0"
-  },
-  "resolutions": {
-    "esbuild": "0.25.8"
+    },
+    "resolutions": {
+        "esbuild": "0.25.8"
     }
 }

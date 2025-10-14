@@ -1,0 +1,13 @@
+diff --git a/node_modules/moment/moment.js b/node_modules/moment/moment.js
+index 480b9fb..900860f 100644
+--- a/node_modules/moment/moment.js
++++ b/node_modules/moment/moment.js
+@@ -783,7 +783,7 @@
+     function unescapeFormat(s) {
+         return regexEscape(
+             s
+-                .replace('\\', '')
++                .replace(/\\/g, '')
+                 .replace(
+                     /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
+                     function (matched, p1, p2, p3, p4) {
