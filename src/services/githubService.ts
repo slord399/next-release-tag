@@ -13,7 +13,7 @@ export const fetchLatestReleaseTag = async () => {
     return response.data.tag_name;
   } catch (error: any) {
     // No releases yet
-    if (error?.response?.status === 404) {
+    if (error?.status === 404) {
       return null;
     }
     throw error;
