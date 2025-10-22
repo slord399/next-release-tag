@@ -42,7 +42,7 @@
         "tmp": ">=0.2.4",
         "typescript": "5.9.2",
         "vite": "^7.1.11",
-        "vitest": "^1.6.0"
+        "vitest": "^3.2.4"
     },
     "resolutions": {
         "esbuild": "0.25.11"
