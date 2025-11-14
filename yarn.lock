@@ -379,10 +379,10 @@
     deprecation "^2.0.0"
     once "^1.4.0"
 
-"@octokit/request@10.0.6":
-  version "10.0.6"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.6.tgz#c12214f86b1e01fb0915c4f3bcbe076433ba975d"
-  integrity sha512-FO+UgZCUu+pPnZAR+iKdUt64kPE7QW7ciqpldaMXaNzixz5Jld8dJ31LAUewk0cfSRkNSRKyqG438ba9c/qDlQ==
+"@octokit/request@10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.7.tgz#93f619914c523750a85e7888de983e1009eb03f6"
+  integrity sha512-v93h0i1yu4idj8qFPZwjehoJx4j3Ntn+JhXsdJrG9pYaX6j/XRz2RmasMUHtNgQD39nrv/VwTWSqK0RNXR8upA==
   dependencies:
     "@octokit/endpoint" "^11.0.2"
     "@octokit/request-error" "^7.0.2"
