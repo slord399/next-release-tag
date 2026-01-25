@@ -47,6 +47,7 @@
     "resolutions": {
         "esbuild": "0.27.2",
         "js-yaml": "4.1.1",
-        "glob": "11.1.0"
+        "glob": "11.1.0",
+        "undici": "6.23.0"
     }
 }
