@@ -14,7 +14,7 @@
         "postinstall": "patch-package"
     },
     "dependencies": {
-        "@actions/core": "2.0.2",
+        "@actions/core": "2.0.3",
         "@actions/github": "7.0.0",
         "moment": "^2.30.1",
         "tmp": "^0.2.4"
