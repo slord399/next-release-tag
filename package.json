@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@actions/core": "2.0.2",
-        "@actions/github": "7.0.0",
+        "@actions/github": "9.0.0",
         "moment": "^2.30.1",
         "tmp": "^0.2.4"
     },
