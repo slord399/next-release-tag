@@ -14,8 +14,8 @@
         "postinstall": "patch-package"
     },
     "dependencies": {
-        "@actions/core": "2.0.2",
-        "@actions/github": "7.0.0",
+        "@actions/core": "3.0.0",
+        "@actions/github": "9.0.0",
         "moment": "^2.30.1",
         "tmp": "^0.2.4"
     },
@@ -24,6 +24,7 @@
         "@octokit/plugin-paginate-rest": "14.0.0",
         "@octokit/request": "10.0.7",
         "@octokit/request-error": "7.1.0",
+        "@types/node": "^25.2.1",
         "@typescript-eslint/eslint-plugin": "8",
         "@typescript-eslint/parser": "8",
         "@vercel/ncc": "0.38.4",
