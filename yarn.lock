@@ -312,10 +312,10 @@
     before-after-hook "^4.0.0"
     universal-user-agent "^7.0.0"
 
-"@octokit/endpoint@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-11.0.2.tgz#a8d955e053a244938b81d86cd73efd2dcb5ef5af"
-  integrity sha512-4zCpzP1fWc7QlqunZ5bSEjxc6yLAlRTnDwKtgXfcI/FxxGoqedDG8V2+xJ60bV2kODqcGB+nATdtap/XYq2NZQ==
+"@octokit/endpoint@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-11.0.3.tgz#acf5f7feddde4e12185d5312ee38ff77235d8205"
+  integrity sha512-FWFlNxghg4HrXkD3ifYbS/IdL/mDHjh9QcsNyhQjN8dplUoZbejsdpmuqdA76nxj2xoWPs7p8uX2SNr9rYu0Ag==
   dependencies:
     "@octokit/types" "^16.0.0"
     universal-user-agent "^7.0.2"
@@ -355,15 +355,16 @@
   dependencies:
     "@octokit/types" "^16.0.0"
 
-"@octokit/request@10.0.7", "@octokit/request@^10.0.6", "@octokit/request@^10.0.7":
-  version "10.0.7"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.7.tgz#93f619914c523750a85e7888de983e1009eb03f6"
-  integrity sha512-v93h0i1yu4idj8qFPZwjehoJx4j3Ntn+JhXsdJrG9pYaX6j/XRz2RmasMUHtNgQD39nrv/VwTWSqK0RNXR8upA==
+"@octokit/request@10.0.8", "@octokit/request@^10.0.6", "@octokit/request@^10.0.7":
+  version "10.0.8"
+  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.8.tgz#6609a5a38ad6f8ee203d9eb8ac9361d906a4414e"
+  integrity sha512-SJZNwY9pur9Agf7l87ywFi14W+Hd9Jg6Ifivsd33+/bGUQIjNujdFiXII2/qSlN2ybqUHfp5xpekMEjIBTjlSw==
   dependencies:
-    "@octokit/endpoint" "^11.0.2"
+    "@octokit/endpoint" "^11.0.3"
     "@octokit/request-error" "^7.0.2"
     "@octokit/types" "^16.0.0"
     fast-content-type-parse "^3.0.0"
+    json-with-bigint "^3.5.3"
     universal-user-agent "^7.0.2"
 
 "@octokit/types@^16.0.0":
@@ -1976,6 +1977,11 @@ json-stable-stringify@^1.0.2:
     isarray "^2.0.5"
     jsonify "^0.0.1"
     object-keys "^1.1.1"
+
+json-with-bigint@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/json-with-bigint/-/json-with-bigint-3.5.3.tgz#292fe4d3fa941996a02294edf31fa59d8c9054ef"
+  integrity sha512-QObKu6nxy7NsxqR0VK4rkXnsNr5L9ElJaGEg+ucJ6J7/suoKZ0n+p76cu9aCqowytxEbwYNzvrMerfMkXneF5A==
 
 json5@^1.0.2:
   version "1.0.2"
