@@ -24,7 +24,7 @@
         "@octokit/plugin-paginate-rest": "14.0.0",
         "@octokit/request": "10.0.8",
         "@octokit/request-error": "7.1.0",
-        "@types/node": "^25.3.1",
+        "@types/node": "^25.3.2",
         "@typescript-eslint/eslint-plugin": "8",
         "@typescript-eslint/parser": "8",
         "@vercel/ncc": "0.38.4",
