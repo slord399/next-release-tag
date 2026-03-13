@@ -29,7 +29,7 @@
         "@typescript-eslint/parser": "8",
         "@vercel/ncc": "0.38.4",
         "braces": "3.0.3",
-        "esbuild": "0.27.3",
+        "esbuild": "0.27.4",
         "eslint": "8.57.0",
         "eslint-config-airbnb-base": "15.0.0",
         "eslint-config-prettier": "^10.1.8",
@@ -47,7 +47,7 @@
     },
     "resolutions": {
         "@octokit/request": "10.0.8",
-        "esbuild": "0.27.3",
+        "esbuild": "0.27.4",
         "js-yaml": "4.1.1",
         "glob": "11.1.0",
         "undici": "6.23.0"
