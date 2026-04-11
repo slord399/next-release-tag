@@ -6,7 +6,7 @@
     "license": "MIT-open-group",
     "homepage": "https://github.com/alexvingg/next-release-tag#readme",
     "scripts": {
-        "build": "yarn clean && ncc build src/index.ts --minify --license licenses.txt",
+        "build": "yarn clean && ncc build src/index.ts --license licenses.txt && prettier --write dist/index.js",
         "clean": "rimraf dist/",
         "dist": "yarn test && yarn build",
         "lint": "eslint .",
