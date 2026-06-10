@@ -28,7 +28,7 @@
         "@types/node": "^25.9.2",
         "@typescript-eslint/eslint-plugin": "8.60.1",
         "@typescript-eslint/parser": "8.61.0",
-        "@vercel/ncc": "0.38.4",
+        "@vercel/ncc": "0.44.0",
         "braces": "3.0.3",
         "esbuild": "0.28.0",
         "eslint": "8.57.0",
