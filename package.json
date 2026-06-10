@@ -26,7 +26,7 @@
         "@octokit/request": "10.0.10",
         "@octokit/request-error": "7.1.0",
         "@types/node": "^25.9.2",
-        "@typescript-eslint/eslint-plugin": "8.60.1",
+        "@typescript-eslint/eslint-plugin": "8.61.0",
         "@typescript-eslint/parser": "8.61.0",
         "@vercel/ncc": "0.38.4",
         "braces": "3.0.3",
