@@ -6408,12 +6408,10 @@
 
           // if we have a mix of positive and negative values, bubble down first
           // check: https://github.com/moment/moment/issues/2166
-          if (
-            !(
-              (milliseconds >= 0 && days >= 0 && months >= 0) ||
-              (milliseconds <= 0 && days <= 0 && months <= 0)
-            )
-          ) {
+          if (!(
+            (milliseconds >= 0 && days >= 0 && months >= 0) ||
+            (milliseconds <= 0 && days <= 0 && months <= 0)
+          )) {
             milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
             days = 0;
             months = 0;
@@ -24954,16 +24952,14 @@ ${pendingInterceptorsFormatter.format(pending)}
         for (let i = 0; i < length; ++i) {
           const cp = boundary.charCodeAt(i);
 
-          if (
-            !(
-              (cp >= 0x30 && cp <= 0x39) ||
-              (cp >= 0x41 && cp <= 0x5a) ||
-              (cp >= 0x61 && cp <= 0x7a) ||
-              cp === 0x27 ||
-              cp === 0x2d ||
-              cp === 0x5f
-            )
-          ) {
+          if (!(
+            (cp >= 0x30 && cp <= 0x39) ||
+            (cp >= 0x41 && cp <= 0x5a) ||
+            (cp >= 0x61 && cp <= 0x7a) ||
+            cp === 0x27 ||
+            cp === 0x2d ||
+            cp === 0x5f
+          )) {
             return false;
           }
         }
@@ -30865,15 +30861,11 @@ ${pendingInterceptorsFormatter.format(pending)}
       function isValidReasonPhrase(statusText) {
         for (let i = 0; i < statusText.length; ++i) {
           const c = statusText.charCodeAt(i);
-          if (
-            !(
-              (
-                c === 0x09 || // HTAB
-                (c >= 0x20 && c <= 0x7e) || // SP / VCHAR
-                (c >= 0x80 && c <= 0xff)
-              ) // obs-text
-            )
-          ) {
+          if (!(
+            c === 0x09 || // HTAB
+            (c >= 0x20 && c <= 0x7e) || // SP / VCHAR
+            (c >= 0x80 && c <= 0xff) // obs-text
+          )) {
             return false;
           }
         }
@@ -41818,14 +41810,39 @@ ${pendingInterceptorsFormatter.format(pending)}
 
     // EXTERNAL MODULE: ./node_modules/content-type/dist/index.js
     var dist = __nccwpck_require__(4649); // CONCATENATED MODULE: ./node_modules/json-with-bigint/json-with-bigint.js
+    const intRegex = /^-?\d+$/;
     const noiseValue = /^-?\d+n+$/; // Noise - strings that match the custom format before being converted to it
     const originalStringify = JSON.stringify;
     const originalParse = JSON.parse;
+    const customFormat = /^-?\d+n$/;
 
-    /*
-  Function to serialize value to a JSON string.
-  Converts BigInt values to a custom format (strings with digits and "n" at the end) and then converts them to proper big integers in a JSON string.
-*/
+    const bigIntsStringify =
+      /([\[:])?"(-?\d+)n"($|([\\n]|\s)*(\s|[\\n])*[,\}\]])/g;
+    const noiseStringify =
+      /([\[:])?("-?\d+n+)n("$|"([\\n]|\s)*(\s|[\\n])*[,\}\]])/g;
+
+    /**
+     * @typedef {(this: any, key: string | number | undefined, value: any) => any} Replacer
+     * @typedef {(key: string | number | undefined, value: any, context?: { source: string }) => any} Reviver
+     */
+
+    /**
+     * Converts a JavaScript value to a JSON string.
+     *
+     * Supports serialization of BigInt values using two strategies:
+     * 1. Custom format "123n" → "123" (universal fallback)
+     * 2. Native JSON.rawJSON() (Node.js 22+, fastest) when available
+     *
+     * All other values are serialized exactly like native JSON.stringify().
+     *
+     * @param {*} value The value to convert to a JSON string.
+     * @param {Replacer | Array<string | number> | null} [replacer]
+     *   A function that alters the behavior of the stringification process,
+     *   or an array of strings/numbers to indicate properties to exclude.
+     * @param {string | number} [space]
+     *   A string or number to specify indentation or pretty-printing.
+     * @returns {string} The JSON string representation.
+     */
     const JSONStringify = (value, replacer, space) => {
       if ('rawJSON' in JSON) {
         return originalStringify(
@@ -41846,13 +41863,10 @@ ${pendingInterceptorsFormatter.format(pending)}
 
       if (!value) return originalStringify(value, replacer, space);
 
-      const bigInts = /([\[:])?"(-?\d+)n"($|([\\n]|\s)*(\s|[\\n])*[,\}\]])/g;
-      const noise = /([\[:])?("-?\d+n+)n("$|"([\\n]|\s)*(\s|[\\n])*[,\}\]])/g;
       const convertedToCustomJSON = originalStringify(
         value,
         (key, value) => {
-          const isNoise =
-            typeof value === 'string' && Boolean(value.match(noiseValue));
+          const isNoise = typeof value === 'string' && noiseValue.test(value);
 
           if (isNoise) return value.toString() + 'n'; // Mark noise values with additional "n" to offset the deletion of one "n" during the processing
 
@@ -41866,31 +41880,87 @@ ${pendingInterceptorsFormatter.format(pending)}
         },
         space
       );
-      const processedJSON = convertedToCustomJSON.replace(bigInts, '$1$2$3'); // Delete one "n" off the end of every BigInt value
-      const denoisedJSON = processedJSON.replace(noise, '$1$2$3'); // Remove one "n" off the end of every noisy string
+      const processedJSON = convertedToCustomJSON.replace(
+        bigIntsStringify,
+        '$1$2$3'
+      ); // Delete one "n" off the end of every BigInt value
+      const denoisedJSON = processedJSON.replace(noiseStringify, '$1$2$3'); // Remove one "n" off the end of every noisy string
 
       return denoisedJSON;
     };
 
-    /*
-  Function to check if the JSON.parse's context.source feature is supported.
-*/
-    const isContextSourceSupported = () =>
-      JSON.parse('1', (_, __, context) => !!context && context.source === '1');
+    const featureCache = new Map();
 
-    /*
-  Faster (2x) and simpler function to parse JSON.
-  Based on JSON.parse's context.source feature, which is not universally available now.
-  Does not support the legacy custom format, used in the first version of this library.
-*/
+    /**
+     * Detects if the current JSON.parse implementation supports the context.source feature.
+     *
+     * Uses toString() fingerprinting to cache results and automatically detect runtime
+     * replacements of JSON.parse (polyfills, mocks, etc.).
+     *
+     * @returns {boolean} true if context.source is supported, false otherwise.
+     */
+    const isContextSourceSupported = () => {
+      const parseFingerprint = JSON.parse.toString();
+
+      if (featureCache.has(parseFingerprint)) {
+        return featureCache.get(parseFingerprint);
+      }
+
+      try {
+        const result = JSON.parse(
+          '1',
+          (_, __, context) => !!context?.source && context.source === '1'
+        );
+        featureCache.set(parseFingerprint, result);
+
+        return result;
+      } catch {
+        featureCache.set(parseFingerprint, false);
+
+        return false;
+      }
+    };
+
+    /**
+     * Reviver function that converts custom-format BigInt strings back to BigInt values.
+     * Also handles "noise" strings that accidentally match the BigInt format.
+     *
+     * @param {string | number | undefined} key The object key.
+     * @param {*} value The value being parsed.
+     * @param {object} [context] Parse context (if supported by JSON.parse).
+     * @param {Reviver} [userReviver] User's custom reviver function.
+     * @returns {any} The transformed value.
+     */
+    const convertMarkedBigIntsReviver = (key, value, context, userReviver) => {
+      const isCustomFormatBigInt =
+        typeof value === 'string' && customFormat.test(value);
+      if (isCustomFormatBigInt) return BigInt(value.slice(0, -1));
+
+      const isNoiseValue = typeof value === 'string' && noiseValue.test(value);
+      if (isNoiseValue) return value.slice(0, -1);
+
+      if (typeof userReviver !== 'function') return value;
+
+      return userReviver(key, value, context);
+    };
+
+    /**
+     * Fast JSON.parse implementation (~2x faster than classic fallback).
+     * Uses JSON.parse's context.source feature to detect integers and convert
+     * large numbers directly to BigInt without string manipulation.
+     *
+     * Does not support legacy custom format from v1 of this library.
+     *
+     * @param {string} text JSON string to parse.
+     * @param {Reviver} [reviver] Transform function to apply to each value.
+     * @returns {any} Parsed JavaScript value.
+     */
     const JSONParseV2 = (text, reviver) => {
-      const intRegex = /^-?\d+$/;
-
       return JSON.parse(text, (key, value, context) => {
         const isBigNumber =
           typeof value === 'number' &&
           (value > Number.MAX_SAFE_INTEGER || value < Number.MIN_SAFE_INTEGER);
-        const isInt = intRegex.test(context.source);
+        const isInt = context && intRegex.test(context.source);
         const isBigInt = isBigNumber && isInt;
 
         if (isBigInt) return BigInt(context.source);
@@ -41901,29 +41971,40 @@ ${pendingInterceptorsFormatter.format(pending)}
       });
     };
 
-    /*
-  Function to parse JSON.
-  If JSON has number values greater than Number.MAX_SAFE_INTEGER, we convert those values to a custom format, then parse them to BigInt values.
-  Other types of values are not affected and parsed as native JSON.parse() would parse them.
-*/
+    const MAX_INT = Number.MAX_SAFE_INTEGER.toString();
+    const MAX_DIGITS = MAX_INT.length;
+    const stringsOrLargeNumbers =
+      /"(?:\\.|[^"])*"|-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?/g;
+    const noiseValueWithQuotes = /^"-?\d+n+"$/; // Noise - strings that match the custom format before being converted to it
+
+    /**
+     * Converts a JSON string into a JavaScript value.
+     *
+     * Supports parsing of large integers using two strategies:
+     * 1. Classic fallback: Marks large numbers with "123n" format, then converts to BigInt
+     * 2. Fast path (JSONParseV2): Uses context.source feature (~2x faster) when available
+     *
+     * All other JSON values are parsed exactly like native JSON.parse().
+     *
+     * @param {string} text A valid JSON string.
+     * @param {Reviver} [reviver]
+     *   A function that transforms the results. This function is called for each member
+     *   of the object. If a member contains nested objects, the nested objects are
+     *   transformed before the parent object is.
+     * @returns {any} The parsed JavaScript value.
+     * @throws {SyntaxError} If text is not valid JSON.
+     */
     const JSONParse = (text, reviver) => {
       if (!text) return originalParse(text, reviver);
 
       if (isContextSourceSupported()) return JSONParseV2(text, reviver); // Shortcut to a faster (2x) and simpler version
-
-      const MAX_INT = Number.MAX_SAFE_INTEGER.toString();
-      const MAX_DIGITS = MAX_INT.length;
-      const stringsOrLargeNumbers =
-        /"(?:\\.|[^"])*"|-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?/g;
-      const noiseValueWithQuotes = /^"-?\d+n+"$/; // Noise - strings that match the custom format before being converted to it
-      const customFormat = /^-?\d+n$/;
 
       // Find and mark big numbers with "n"
       const serializedData = text.replace(
         stringsOrLargeNumbers,
         (text, digits, fractional, exponential) => {
           const isString = text[0] === '"';
-          const isNoise = isString && Boolean(text.match(noiseValueWithQuotes));
+          const isNoise = isString && noiseValueWithQuotes.test(text);
 
           if (isNoise) return text.substring(0, text.length - 1) + 'n"'; // Mark noise values with additional "n" to offset the deletion of one "n" during the processing
 
@@ -41940,23 +42021,9 @@ ${pendingInterceptorsFormatter.format(pending)}
         }
       );
 
-      // Convert marked big numbers to BigInt
-      return originalParse(serializedData, (key, value, context) => {
-        const isCustomFormatBigInt =
-          typeof value === 'string' && Boolean(value.match(customFormat));
-
-        if (isCustomFormatBigInt)
-          return BigInt(value.substring(0, value.length - 1));
-
-        const isNoiseValue =
-          typeof value === 'string' && Boolean(value.match(noiseValue));
-
-        if (isNoiseValue) return value.substring(0, value.length - 1); // Remove one "n" off the end of the noisy string
-
-        if (typeof reviver !== 'function') return value;
-
-        return reviver(key, value, context);
-      });
+      return originalParse(serializedData, (key, value, context) =>
+        convertMarkedBigIntsReviver(key, value, context, reviver)
+      );
     }; // CONCATENATED MODULE: ./node_modules/@octokit/request-error/dist-src/index.js
 
     class RequestError extends Error {
@@ -42005,7 +42072,7 @@ ${pendingInterceptorsFormatter.format(pending)}
     // pkg/dist-src/defaults.js
 
     // pkg/dist-src/version.js
-    var dist_bundle_VERSION = '10.0.10';
+    var dist_bundle_VERSION = '10.0.11';
 
     // pkg/dist-src/defaults.js
     var defaults_default = {
@@ -42182,12 +42249,15 @@ ${pendingInterceptorsFormatter.format(pending)}
       if (data instanceof ArrayBuffer) {
         return 'Unknown error';
       }
-      if ('message' in data) {
+      if (typeof data === 'object' && data !== null && 'message' in data) {
+        const objectData = data;
         const suffix =
-          'documentation_url' in data ? ` - ${data.documentation_url}` : '';
-        return Array.isArray(data.errors)
-          ? `${data.message}: ${data.errors.map((v) => JSON.stringify(v)).join(', ')}${suffix}`
-          : `${data.message}${suffix}`;
+          'documentation_url' in objectData
+            ? ` - ${objectData.documentation_url}`
+            : '';
+        return Array.isArray(objectData.errors)
+          ? `${objectData.message}: ${objectData.errors.map((v) => JSON.stringify(v)).join(', ')}${suffix}`
+          : `${objectData.message}${suffix}`;
       }
       return `Unknown error: ${JSON.stringify(data)}`;
     }
