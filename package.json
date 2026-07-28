@@ -49,9 +49,14 @@
     "resolutions": {
         "@octokit/request": "10.0.11",
         "esbuild": "0.28.1",
-        "js-yaml": "4.2.0",
+        "js-yaml": "4.3.0",
         "glob": "11.1.0",
         "undici": "6.24.1",
-        "picomatch": "4.0.4"
+        "picomatch": "4.0.4",
+        "eslint/minimatch/brace-expansion": "1.1.16",
+        "eslint-plugin-import/minimatch/brace-expansion": "1.1.16",
+        "eslint-config-airbnb-base/eslint-plugin-import/minimatch/brace-expansion": "1.1.16",
+        "@eslint/eslintrc/minimatch/brace-expansion": "1.1.16",
+        "@humanwhocodes/config-array/minimatch/brace-expansion": "1.1.16"
     }
 }
