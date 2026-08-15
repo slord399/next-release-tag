@@ -22,8 +22,8 @@
     "devDependencies": {
         "@stylistic/eslint-plugin": "^2.6.1",
         "@kesills/eslint-config-airbnb-typescript": "20.0.0",
-        "@octokit/plugin-paginate-rest": "14.0.0",
-        "@octokit/request": "10.0.11",
+        "@octokit/plugin-paginate-rest": "15.0.0",
+        "@octokit/request": "10.0.13",
         "@octokit/request-error": "7.1.1",
         "@types/node": "^26.1.2",
         "@typescript-eslint/eslint-plugin": "8.65.0",
@@ -47,11 +47,11 @@
         "vitest": "^4.1.10"
     },
     "resolutions": {
-        "@octokit/request": "10.0.11",
+        "@octokit/request": "10.0.13",
         "esbuild": "0.28.1",
-        "js-yaml": "4.3.0",
+        "js-yaml": "4.3.1",
         "glob": "11.1.0",
-        "undici": "6.24.1",
+        "undici": "6.28.0",
         "picomatch": "4.0.4",
         "eslint/minimatch/brace-expansion": "1.1.16",
         "eslint-plugin-import/minimatch/brace-expansion": "1.1.16",
