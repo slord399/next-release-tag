@@ -44,7 +44,7 @@
         "tmp": "0.2.7",
         "typescript": "6.0.3",
         "vite": "^8.2.1",
-        "vitest": "^4.1.10"
+        "vitest": "^4.1.11"
     },
     "resolutions": {
         "@octokit/request": "10.0.13",
