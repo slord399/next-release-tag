@@ -291,12 +291,12 @@
     before-after-hook "^4.0.0"
     universal-user-agent "^7.0.0"
 
-"@octokit/endpoint@^11.0.3":
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-11.0.3.tgz#acf5f7feddde4e12185d5312ee38ff77235d8205"
-  integrity sha512-FWFlNxghg4HrXkD3ifYbS/IdL/mDHjh9QcsNyhQjN8dplUoZbejsdpmuqdA76nxj2xoWPs7p8uX2SNr9rYu0Ag==
+"@octokit/endpoint@^11.0.5":
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-11.0.5.tgz#d7ec88843bfeeea692fee97b52e7c2cdc0393db4"
+  integrity sha512-iXa654H3yFafF/ieHkukfbgWo2rmXD2ceD0ZOtrPhw1bc3FDch1d9N/TNs0FQ1/cIbwb7kspUX8jzIs8nzb9DQ==
   dependencies:
-    "@octokit/types" "^16.0.0"
+    "@octokit/types" "^18.0.0"
     universal-user-agent "^7.0.2"
 
 "@octokit/graphql@^9.0.3":
@@ -344,21 +344,21 @@
   dependencies:
     "@octokit/types" "^16.0.0"
 
-"@octokit/request-error@7.1.2", "@octokit/request-error@^7.0.2", "@octokit/request-error@^7.1.0", "@octokit/request-error@^7.1.1":
+"@octokit/request-error@7.1.2", "@octokit/request-error@^7.0.2", "@octokit/request-error@^7.1.0", "@octokit/request-error@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@octokit/request-error/-/request-error-7.1.2.tgz#0477f3ec1034869205f8bd80560f2bc55b659973"
   integrity sha512-XZRuT3xZ84D3gYErI1DZvhJ33dCWVV6uzBtWkaBB4TvA/L6eOeTZodxLFVB44bBEEo3vEx7y00UfX1tBLrtLRg==
   dependencies:
     "@octokit/types" "^18.0.0"
 
-"@octokit/request@10.0.15", "@octokit/request@^10.0.6", "@octokit/request@^10.0.7":
-  version "10.0.15"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.15.tgz#20d76552bedec9785a1c0193b95550884782ba43"
-  integrity sha512-3CBg9aJ0hO9Pjyij8LbK/xYtEaPws9SW7xKz67daPNxQB1q5Y9OMA7DDOG0A6Hwf9ygGu3tvzusg0LXQ8/wAjA==
+"@octokit/request@10.0.16", "@octokit/request@^10.0.6", "@octokit/request@^10.0.7":
+  version "10.0.16"
+  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.16.tgz#b548f8f848ffe4ccf5082142fac096fe7b8222b2"
+  integrity sha512-A0zWGjHzISIb+9ccG8s0dq7LKO5zVpJLRICjgUb+sJxEWqn8RUHB1rD3AE51+PECvXHIxqZ1VVvs4fHTSD9nUQ==
   dependencies:
-    "@octokit/endpoint" "^11.0.3"
-    "@octokit/request-error" "^7.1.1"
-    "@octokit/types" "^17.0.0"
+    "@octokit/endpoint" "^11.0.5"
+    "@octokit/request-error" "^7.1.2"
+    "@octokit/types" "^18.0.0"
     content-type "^3.0.0"
     json-with-bigint "^3.5.12"
     universal-user-agent "^7.0.2"
