@@ -51,12 +51,13 @@
         "esbuild": "0.28.2",
         "js-yaml": "4.3.2",
         "glob": "11.1.0",
-        "undici": "6.28.0",
+        "undici": "6.28.1",
         "picomatch": "4.0.4",
-        "eslint/minimatch/brace-expansion": "1.1.16",
-        "eslint-plugin-import/minimatch/brace-expansion": "1.1.16",
-        "eslint-config-airbnb-base/eslint-plugin-import/minimatch/brace-expansion": "1.1.16",
-        "@eslint/eslintrc/minimatch/brace-expansion": "1.1.16",
-        "@humanwhocodes/config-array/minimatch/brace-expansion": "1.1.16"
+        "eslint/minimatch/brace-expansion": "1.1.21",
+        "eslint-plugin-import/minimatch/brace-expansion": "1.1.21",
+        "eslint-config-airbnb-base/eslint-plugin-import/minimatch/brace-expansion": "1.1.21",
+        "@eslint/eslintrc/minimatch/brace-expansion": "1.1.21",
+        "@humanwhocodes/config-array/minimatch/brace-expansion": "1.1.21",
+        "glob/minimatch/brace-expansion": "5.0.12"
     }
 }
