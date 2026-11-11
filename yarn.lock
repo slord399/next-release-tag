@@ -1680,7 +1680,7 @@ glob-parent@^6.0.2:
   dependencies:
     is-glob "^4.0.3"
 
-glob@11.1.0, glob@^13.0.3, glob@^7.1.3:
+glob@11.1.0, glob@^14.0.3, glob@^7.1.3:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-11.1.0.tgz#4f826576e4eb99c7dad383793d2f9f08f67e50a6"
   integrity sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==
@@ -2530,12 +2530,12 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.1.0.tgz#0fe13b9522e1473f51b558ee796e08f11f9b489f"
   integrity sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==
 
-rimraf@6.1.3:
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.3.tgz#afbee236b3bd2be331d4e7ce4493bac1718981af"
-  integrity sha512-LKg+Cr2ZF61fkcaK1UdkH2yEBBKnYjTyWzTJT6KNPcSPaiT7HSdhtMXQuN5wkTX0Xu72KQ1l8S42rlmexS2hSA==
+rimraf@6.1.4:
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.4.tgz#16b4ed760f3015c2d888c58f805f1f7c138c8c32"
+  integrity sha512-Fk3reQDVPZUMbEm7Zwxz03BWQMW3V5buSk9aU8OckTrO8A1nQtbqvYsAantGNermwsIsXcuOBqcoJ3HuMELctw==
   dependencies:
-    glob "^13.0.3"
+    glob "^14.0.3"
     package-json-from-dist "^1.0.1"
 
 rimraf@^3.0.2:
